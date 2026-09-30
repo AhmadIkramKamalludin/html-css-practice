@@ -41,10 +41,109 @@ description = SEO (search engine)
             <p>I'm learning HTML, CSS, and JavaScript.</p>
         </section>
 
-        <!-- CONTACT SECTION -->
+                <!-- CONTACT SECTION -->
         <section id="contact">
             <h2>Contact</h2>
             <p>Email: ikramrawas@gmail.com</p>
+            
+            <hr style="margin: 30px 0; border: none; border-top: 1px solid #ddd;">
+            
+            <h3 style="margin-top: 30px; color: var(--primary-color);">Send Me a Message</h3>
+            
+            <form>
+                <!-- NAME INPUT -->
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input 
+                        type="text" 
+                        id="name" 
+                        name="name" 
+                        placeholder="Enter your full name"
+                        required
+                    >
+                </div>
+
+                <!-- EMAIL INPUT -->
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        placeholder="your@email.com"
+                        required
+                    >
+                </div>
+
+                <!-- SUBJECT INPUT -->
+                <div class="form-group">
+                    <label for="subject">Subject *</label>
+                    <input 
+                        type="text" 
+                        id="subject" 
+                        name="subject" 
+                        placeholder="What is this about?"
+                        required
+                    >
+                </div>
+
+                <!-- MESSAGE TEXTAREA -->
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea 
+                        id="message" 
+                        name="message" 
+                        rows="5" 
+                        placeholder="Write your message here..."
+                        required
+                    ></textarea>
+                </div>
+
+                <!-- RADIO BUTTONS (Pilih salah satu) -->
+                <div class="form-group">
+                    <label>How did you find me?</label>
+                    <div class="radio-group">
+                        <input type="radio" id="google" name="source" value="Google">
+                        <label for="google">Google</label>
+                        
+                        <input type="radio" id="friend" name="source" value="Friend">
+                        <label for="friend">Friend</label>
+                        
+                        <input type="radio" id="social" name="source" value="Social Media">
+                        <label for="social">Social Media</label>
+                    </div>
+                </div>
+
+                <!-- CHECKBOX (Boleh pilih banyak) -->
+                <div class="form-group">
+                    <label>Interested in:</label>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="web" name="interest" value="Web Development">
+                        <label for="web">Web Development</label>
+                        
+                        <input type="checkbox" id="design" name="interest" value="Design">
+                        <label for="design">Design</label>
+                        
+                        <input type="checkbox" id="freelance" name="interest" value="Freelance">
+                        <label for="freelance">Freelance Work</label>
+                    </div>
+                </div>
+
+                <!-- DROPDOWN -->
+                <div class="form-group">
+                    <label for="category">Category *</label>
+                    <select id="category" name="category" required>
+                        <option value="">-- Select a category --</option>
+                        <option value="inquiry">General Inquiry</option>
+                        <option value="collab">Collaboration</option>
+                        <option value="feedback">Feedback</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <!-- SUBMIT BUTTON -->
+                <button type="submit">Send Message</button>
+            </form>
         </section>
     </main>
 
