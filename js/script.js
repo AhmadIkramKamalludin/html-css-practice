@@ -1,94 +1,67 @@
 // ========================================
-// DOM MANIPULATION PRACTICE
+// EVENT LISTENERS PRACTICE
 // ========================================
 
-console.log("=== DOM Manipulation ===");
+console.log("=== Event Listeners ===");
 
-// -------- SELECT ELEMENTS --------
-let heading = document.querySelector("h1");
-let sections = document.querySelectorAll("section");
+// -------- CLICK EVENT --------
 let submitBtn = document.querySelector("button");
 
-console.log("Heading:", heading);
-console.log("Number of sections:", sections.length);
-console.log("Button:", submitBtn);
-
-// -------- CHANGE TEXT --------
-heading.textContent = "Ahmad Ikram - Web Developer Portfolio";
-console.log("Changed heading text");
-
-// -------- CHANGE STYLES --------
-heading.style.color = "blue";
-heading.style.fontSize = "40px";
-console.log("Changed heading style");
-
-// -------- CHANGE MULTIPLE STYLES --------
 if (submitBtn) {
-    submitBtn.style.backgroundColor = "green";
-    submitBtn.style.padding = "15px 30px";
-    submitBtn.style.fontSize = "18px";
-    console.log("Changed button style");
+    submitBtn.addEventListener("click", function() {
+        console.log("Submit button was clicked!");
+        submitBtn.style.backgroundColor = "green";
+        submitBtn.textContent = "Message Sent! ✅";
+    });
 }
 
-// -------- GET ELEMENT TEXT --------
-console.log("Heading text is:", heading.textContent);
-
-// -------- ADD CLASS --------
-heading.classList.add("highlighted");
-console.log("Added class to heading");
-
-// -------- GET ELEMENT BY ID --------
-let homeSection = document.querySelector("#home");
-if (homeSection) {
-    homeSection.style.backgroundColor = "#f0f0f0";
-    console.log("Changed home section background");
-}
-
-// -------- LOOP THROUGH ELEMENTS --------
-console.log("All sections:");
-for (let i = 0; i < sections.length; i++) {
-    console.log(i, sections[i].innerHTML.substring(0, 50));
-}
-
-// -------- GET FORM INPUTS --------
+// -------- INPUT EVENT --------
 let nameInput = document.querySelector("input[name='name']");
+
+if (nameInput) {
+    nameInput.addEventListener("input", function() {
+        console.log("Name input: " + nameInput.value);
+    });
+}
+
+// -------- EMAIL INPUT --------
 let emailInput = document.querySelector("input[name='email']");
 
-console.log("Name input:", nameInput);
-console.log("Email input:", emailInput);
-
-// -------- GET INPUT VALUE --------
-if (nameInput) {
-    console.log("Name input placeholder:", nameInput.placeholder);
+if (emailInput) {
+    emailInput.addEventListener("input", function() {
+        console.log("Email input: " + emailInput.value);
+    });
 }
 
-// ========================================
-// PRACTICAL DOM EXAMPLES
-// ========================================
+// -------- MOUSEOVER EVENT --------
+let sections = document.querySelectorAll("section");
 
-// Example 1: Change all section backgrounds
-let allSections = document.querySelectorAll("section");
-for (let i = 0; i < allSections.length; i++) {
-    allSections[i].style.borderRadius = "10px";
-    console.log("Section " + i + " border updated");
+for (let i = 0; i < sections.length; i++) {
+    sections[i].addEventListener("mouseover", function() {
+        this.style.backgroundColor = "#f0f0f0";
+        console.log("Mouse over section");
+    });
+    
+    sections[i].addEventListener("mouseout", function() {
+        this.style.backgroundColor = "white";
+        console.log("Mouse left section");
+    });
 }
 
-// Example 2: Get all input fields and log them
-let allInputs = document.querySelectorAll("input");
-console.log("Total inputs:", allInputs.length);
-for (let i = 0; i < allInputs.length; i++) {
-    console.log("Input " + i + ":", allInputs[i].type);
+// -------- FORM SUBMIT --------
+let form = document.querySelector("form");
+
+if (form) {
+    form.addEventListener("submit", function(event) {
+        event.preventDefault();  // Stop page reload
+        
+        console.log("Form submitted!");
+        console.log("Name: " + nameInput.value);
+        console.log("Email: " + emailInput.value);
+        
+        // Show success message
+        alert("Form submitted! Thank you!");
+    });
 }
 
-// Example 3: Change footer text
-let footer = document.querySelector("footer");
-if (footer) {
-    footer.textContent = "© 2024 Ahmad Ikram - Made with ❤️";
-}
-
-// Example 4: Add style to multiple elements
-let allButtons = document.querySelectorAll("button");
-for (let i = 0; i < allButtons.length; i++) {
-    allButtons[i].style.cursor = "pointer";
-    allButtons[i].style.transition = "0.3s";
-}
+console.log("Event listeners attached!");
